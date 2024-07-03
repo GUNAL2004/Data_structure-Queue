@@ -1,0 +1,56 @@
+You are developing a customer support system for a company. Customers can join the queue to get assistance. You need to implement a method element_count() that returns the number of customers currently in the queue. Your task is to create a Main class that manages the customer queue using a Queue data structure. The class should provide methods to add a customer to the queue, remove a customer from the queue, display the number of customers in the queue.
+
+
+Input Format:
+First Line must consists of any one of the name addCustomer or removeCustomer. If you give addCustomer,after that need to give a name of the customer.
+
+Note:
+You can use exit or Exit or EXIT to stop getting input from the user
+If there are no customers to remove , must display No customers to remove
+
+Output Format:
+Output consists of Integer,which display the number of customers in the queue.
+
+Sample Input:
+addCustomer Arun
+addCustomer Bala
+addCustomer Chandru
+removeCustomer
+removeCustomer
+EXIT
+
+Sample Output:
+Arun
+Bala
+1
+
+Here,Arun represents the customer who is removed from the Queue.
+Bala also,represents the customer who is removed from the Queue.
+1 represents count of customers in the queue.
+
+
+
+SOLUTION:
+
+
+customer=[]
+exit=["exit","Exit","EXIT"]
+while 1:
+    text=input().split()
+    if text[0] in exit:
+        print(len(customer))
+        break
+    else:
+        if(text[0]=="addCustomer"):
+            customer.append(text[1])
+        if(text[0]=="removeCustomer"):
+            if(len(customer)<=0):
+                print("No customers to remove")
+            else:
+                print(customer.pop(0))
+        if(text[0]=="peekNextCustomer"):
+            if(len(customer)<=0):
+                print("No customers in the queue")
+            else:
+                print(customer[0])
+#print(len(customer))                
