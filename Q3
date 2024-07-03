@@ -1,0 +1,59 @@
+You are developing a customer service application for a call center. Customers call in and are placed in a queue based on the order of their calls. The next available customer service representative will always attend to the customer at the front of the queue. Before attending to a customer, the representative needs to know the name of the next customer in line without removing them from the queue. Implement a CallQueue class using a Queue to manage the customers. Provide methods to add customers to the queue, check the next customer to be attended using the peek() method, and remove customers from the front of the queue. Finally, provide a method to display all customers currently in the queue.
+
+Input Format:
+First Line of Input must consists of any of the name(addCustomer,peekNextCustomer,removeCustomer),if you are going to give addCustomer,you want give name of the customer too.  
+
+Note: You can use exit or Exit or EXIT to stop getting input from the user
+
+If there are no customers to peek , must display No customers in the queue
+If there are no customers to remove,must display No customers to remove
+If there are no customers to display,must display No customers in the queue
+
+Output Format:
+Display all customers currently in the queue.
+
+Sample Input:
+addCustomer Alice
+addCustomer Bob
+peekNextCustomer
+removeCustomer
+Exit
+
+Sample Output:
+Alice
+Alice
+Bob
+
+Explanation:
+Here Alice in First Line represents,its the top(peek) element in the queue. 
+Alice in Second Line represents which is removed from the queue.
+Bob in the third line represents,remaining names in the Queue.
+
+
+SOLUTION:
+
+
+customer=[]
+exit=["exit","Exit","EXIT"]
+while True:
+    text=input().split()
+    if text[0] in exit:
+        if(len(customer)<=0):
+            print("No customers in the queue")
+        else:
+            print(*customer)
+        break
+    else:
+        if(text[0]=="addCustomer"):
+            customer.append(text[1])
+        if(text[0]=="removeCustomer"):
+            if(len(customer)<=0):
+                print("No customers to remove")
+            else:
+                print(customer.pop(0))
+        if(text[0]=="peekNextCustomer"):
+            if(len(customer)<=0):
+                print("No customers in the queue")
+            else:
+                print(customer[0])
+
