@@ -1,0 +1,59 @@
+You are developing a library management system where books are requested by students. The library maintains a queue for book requests. Before processing a request, the system needs to check if there are any requests in the queue. Implement a BookRequestQueue class using a Queue to manage the book requests. Provide methods to add requests to the queue, check if the queue is empty using the isEmpty() method, process the next request, and display all requests currently in the queue.
+
+Input Format:
+First Line must consists of any one of the name(addRequest,processRequest,isEmpty). If you give addRequest,after that need to give a name of the book.
+
+Note:
+You can use exit or Exit or EXIT to stop getting input from the user
+If there are no books to process(delete) , must display No requests to process
+If the queue is empty,must display The queue is empty
+If there are no books to display,must display No book requests in the queue
+
+Output Format:
+Display all requests currently in the queue.
+
+Sample Input:
+addRequest Ocaml Programming
+addRequest Perl Programming
+addRequest Political Science
+processRequest
+isEmpty
+exit
+
+Sample Output:
+Ocaml Programming
+The queue is not empty
+Perl Programming Political Science
+
+Here, Ocaml Programming,represents,the book which is removed or deleted.
+The queue is not empty,reprsents we are checking whether the queue is empty or not.
+Perl Programming Political Science,represents these books are currently in the queue. 
+
+
+
+SOLUTION:
+
+
+books=[]
+exit=["exit","Exit","EXIT"]
+while 1:
+    text=input().split()
+    if text[0] in exit:
+        if(len(books)<=0):
+            print("No book requests in the queue")
+        else:    
+            print(*books)
+        break
+    else:
+        if(text[0]=="addRequest"):
+            books.append(text[1:])
+        if(text[0]=="processRequest"):
+            if(len(books)<=0):
+                print("No requests to process")
+            else:
+                print(books.pop(0))
+        if(text[0]=="isEmpty"):
+            if(len(books)<=0):
+                print("The queue is empty")
+            else:
+                print("The queue is not empty")
