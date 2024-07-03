@@ -1,0 +1,58 @@
+Imagine you are developing a ticketing system for a movie theater. When customers arrive, they are issued a ticket and added to a queue to be served in the order they arrive. Implement a queue system where customers can be enqueued when they arrive, and the current state of the queue can be displayed.
+
+Note: Type exit or Exit or EXIT to stop getting input from the user.
+
+Input Format:
+Input Consists of Strings, Names of the Customers
+
+Output Format:
+Display the Customer Names in a Line
+
+Sample Input:
+Ram
+Sam
+Kumar
+exit
+
+Sample Output:
+Ram Sam Kumar
+
+
+
+SOLUTION:
+
+
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class Queue:
+    def __init__(self):
+        self.head=None
+    def enqueue(self,data):
+        new_node=Node(data)
+        if self.head is None:
+            self.head=new_node
+        else:
+            current=self.head
+            while current.next:
+                current=current.next
+            current.next=new_node
+    def display(self):
+        current=self.head
+        while(current!=None):
+            print(current.data,end=" ")
+            current=current.next
+#main program
+qui=Queue()
+exit=["exit","Exit","EXIT"]
+while True:
+    name=input()
+    if(name in exit):
+        break
+    else:
+        qui.enqueue(name)
+qui.display()        
+
+       
+        
